@@ -1,0 +1,98 @@
+class Program
+	{
+		public static void Main(string[] args)
+		{
+			double a,b;
+			int opcion,salir=0;
+			do
+			{
+				Console.WriteLine("MENU DE OPCIONES\n1.Sumar\n2.Restar\n3.Multiplicar\n4.Dividir\n5. para salir");
+				Console.WriteLine("ingrese una opcion a realizar: ");
+				opcion=int.Parse(Console.ReadLine());
+				
+				switch (opcion) {
+					case 1:
+						Console.WriteLine("ingrese un numero: ");
+						a=double.Parse(Console.ReadLine());
+						
+						Console.WriteLine("ingrese otro numero: ");
+						b=double.Parse(Console.ReadLine());
+						Sumar(a,b);
+						break;
+					case 2:
+						Console.WriteLine("ingrese un numero: ");
+						a=double.Parse(Console.ReadLine());
+						
+						Console.WriteLine("ingrese otro numero: ");
+						b=double.Parse(Console.ReadLine());
+						Restar(a,b);
+						break;
+					case 3:
+						Console.WriteLine("ingrese un numero: ");
+						a=double.Parse(Console.ReadLine());
+						
+						Console.WriteLine("ingrese otro numero: ");
+						b=double.Parse(Console.ReadLine());
+						Multiplicar(a,b);
+						break;
+					case 4:
+						Console.WriteLine("ingrese un numero: ");
+						a=double.Parse(Console.ReadLine());
+						
+						Console.WriteLine("ingrese otro numero: ");
+						b=double.Parse(Console.ReadLine());
+						
+						if (b==0) {
+							Console.WriteLine("imposible dividir por 0...");
+						}
+						else
+							
+							Dividir(a,b);
+						
+						break;
+					case 5:
+						salir=1;
+						break;
+				}
+			}
+			
+			while (salir!=1);
+			
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+		
+		static void Sumar(double a, double b)
+		{
+			double c=a+b;
+			Console.WriteLine("resultado: "+ c);
+		}
+		
+		static void Restar(double a, double b)
+		{
+			double c=a-b;
+			Console.WriteLine(c);
+		}
+		
+		static void Multiplicar(double a, double b)
+		{
+			double c=a*b;
+			Console.WriteLine(c);
+		}
+		
+		static void Dividir(double a, double b)
+		{
+			double c=a/b;
+			Console.WriteLine(c);
+		}
+		
+		static void PedirNumero(double a, double b)
+		{
+			Console.WriteLine("ingrese un numero: ");
+			a=double.Parse(Console.ReadLine());
+			
+			Console.WriteLine("ingrese otro numero: ");
+			b=double.Parse(Console.ReadLine());
+		}
+	}
+}
