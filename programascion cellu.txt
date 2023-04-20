@@ -1,0 +1,72 @@
+int dni,opcion,salir=0, cont=0;
+			string nombre,apellido,nomEsc;
+			ArrayList alumno=new ArrayList(4);
+			ArrayList alumnos=new ArrayList();
+			ArrayList escuelas= new ArrayList();
+			do
+			{
+				Console.WriteLine("MENU DE OPCIONES");
+				Console.WriteLine("1.Inscribir alumno \n2.Borrar alumno\n3.Total de alumnos inscriptos \n4.Total de escuelas con al menos un alumno inscripto\n5.Listado de escuelas por orden alfabetico\n0. para salir");
+				Console.WriteLine("ing una opcion: ");
+				opcion=int.Parse(Console.ReadLine());
+				switch (opcion) {
+					case 1:
+						Console.Write("Ingrese el DNI: ");
+						dni = int.Parse(Console.ReadLine());
+						Console.Write("Ingrese el nombre: ");
+						nombre = Console.ReadLine();
+						Console.Write("Ingrese el apellido: ");
+						apellido = Console.ReadLine();
+						Console.Write("Ingrese el nombre de la
+						             escuela: ");
+						              nomEsc = Console.ReadLine();
+						              if(!escuelas.Contains(nomEsc))
+						              {
+						              	escuelas.Add(nomEsc);
+						              }
+						              alumno.Insert(0,dni);
+						              alumno.Insert(1,nombre);
+						              alumno.Insert(2,apellido);
+						              alumno.Insert(3,nomEsc);
+						              alumnos.Add(alumno);
+						              break;
+						             case 2:
+						              int buscarDni;
+						              Console.WriteLine("ing dni a buscar: ");
+						              buscarDni=int.Parse(Console.ReadLine());
+						              for (int i = 0; i < alumnos.Count; i++)
+						              {
+						              	ArrayList auxAlumnos = (ArrayList) alumnos[i];
+						              	for (int j = 0; j < auxAlumnos.Count; j++)
+						              	{
+						              		if(buscarDni==Convert.ToInt32(auxAlumnos[j]))
+						              		{
+						              			alumnos.RemoveAt(i);
+						              			break;
+						              		}
+						              	}
+						              }
+						              break;
+						             case 3:
+						              break;
+						}
+			}
+			while(opcion!=0);
+			/*
+			for (int i = 0; i < alumnos.Count-1; i++)
+			{
+			ArrayList auxAlumnos = (ArrayList) alumnos[i];
+			for (int j = 0; j < auxAlumnos.Count; j++)
+			{
+			Console.WriteLine(auxAlumnos[j]);
+			}
+			}
+			 */
+			/*
+			for(int i=0; i<escuelas.Count; i++)
+			{
+			Console.WriteLine(escuelas[i]);
+			}
+			 */
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
